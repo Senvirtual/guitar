@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zn.user.dao.GuitarMapper">
+  <resultMap id="BaseResultMap" type="org.zn.user.entity.guitar">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="price" jdbcType="Integer" property="price" />
+    <result column="builder" jdbcType="CHAR" property="builder" />
+    <result column="style" jdbcType="CHAR" property="style" />
+    <result column="type" jdbcType="CHAR" property="type" />
+    <result column="wood" jdbcType="CHAR" property="wood" />
+    <result column="serial_number" jdbcType="Integer" property="serialNnumber" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from guitar
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from guitar
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select *
+    from guitar
+  </select>
+</mapper>
